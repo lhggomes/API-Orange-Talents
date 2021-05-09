@@ -2,6 +2,7 @@ package br.com.orange.API.model;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 public class User {
@@ -9,9 +10,12 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Address> adresses;
+    
     @Column(unique = true)
-    private String email;
+    private String mail;
 
     @Column(unique = true)
     private String cpf;
@@ -19,13 +23,30 @@ public class User {
     private String name;
     private LocalDate birthDate;
 
+    
+    
+	public User() {
+	}
+	
+	
 
-    public String getEmail() {
-        return email;
+	public User(List<Address> adresses, String mail, String cpf, String name, LocalDate birthDate) {
+		super();
+		this.adresses = adresses;
+		this.mail = mail;
+		this.cpf = cpf;
+		this.name = name;
+		this.birthDate = birthDate;
+	}
+
+
+
+	public String getEmail() {
+        return mail;
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        this.mail = email;
     }
 
     public String getCpf() {

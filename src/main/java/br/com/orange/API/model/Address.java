@@ -20,9 +20,15 @@ public class Address {
 	private Integer number;
 	private String complement;
 	private String CEP;
-	
-	
-	
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 	public Address() {
 		super();
 	}

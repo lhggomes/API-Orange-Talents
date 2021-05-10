@@ -1,4 +1,4 @@
-package br.com.orange.API.controller.form;
+package br.com.orange.API.form;
 
 import javax.validation.constraints.NotEmpty;
 
@@ -25,11 +25,11 @@ public class AddressForm {
 	
 	
 	
-	public AddressForm(String street, Integer numero, String complement, String cEP) {
+	public AddressForm(String street, Integer numero, String complement, String cep) {
 		this.street = street;
 		this.numero = numero;
 		this.complement = complement;
-		this.CEP = cEP;
+		this.CEP = cep;
 	}
 
 	public String getStreet() {
@@ -60,8 +60,8 @@ public class AddressForm {
 		return CEP;
 	}
 
-	public void setCEP(String cEP) {
-		CEP = cEP;
+	public void setCEP(String cep) {
+		CEP = cep;
 	}
 	
 

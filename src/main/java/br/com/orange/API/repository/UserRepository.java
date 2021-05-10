@@ -1,4 +1,4 @@
-package br.com.orange.API.controller.repository;
+package br.com.orange.API.repository;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;

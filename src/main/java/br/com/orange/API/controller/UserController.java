@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import br.com.orange.API.controller.dto.UserDto;
-import br.com.orange.API.controller.form.UserForm;
-import br.com.orange.API.controller.repository.UserRepository;
+import br.com.orange.API.dto.UserDto;
+import br.com.orange.API.form.UserForm;
+import br.com.orange.API.repository.UserRepository;
 import br.com.orange.API.model.User;
 
 @RestController
@@ -28,12 +28,13 @@ public class UserController {
 	
 	@PostMapping
 	@Transactional
-	public ResponseEntity<?> newUser(@RequestBody @Valid UserForm form, UriComponentsBuilder uriBuilder) {
+	public ResponseEntity<UserForm> newUser(@RequestBody @Valid UserForm form, UriComponentsBuilder uriBuilder) {
 		User user = form.convert();
 		userRepository.save(user);
 		return ResponseEntity.ok().build();
 		
 	}
+
 	
 	@GetMapping
 	public List<UserDto> list(String userName){

@@ -1,5 +1,5 @@
 package br.com.orange.API.dto;
 
-public class DetailsUserDto {
+public class UserDetailsDto {
 	
 	}

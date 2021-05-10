@@ -1,6 +1,7 @@
 package br.com.orange.API.controller;
 
 
+import br.com.orange.API.dto.AddressDetailsDto;
 import br.com.orange.API.form.AddressForm;
 import br.com.orange.API.model.Address;
 import br.com.orange.API.model.User;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/address")
@@ -34,6 +36,13 @@ public class AddressController {
         add.setUser(user);
         addressRepository.save(add);
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/{id}")
+    public List<AddressDetailsDto> getAddressDetails(@PathVariable("id") long id) {
+        User user = userRepository.getOne(id);
+        List<Address> add = addressRepository.findAllByUser(user);
+        return AddressDetailsDto.convert(add);
     }
 
 

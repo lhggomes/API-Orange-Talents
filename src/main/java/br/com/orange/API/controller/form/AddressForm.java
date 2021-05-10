@@ -1,13 +1,9 @@
 package br.com.orange.API.controller.form;
 
-import java.util.Arrays;
-import java.util.List;
-
 import javax.validation.constraints.NotEmpty;
 
 import com.sun.istack.NotNull;
 
-import br.com.orange.API.model.Address;
 
 public class AddressForm {
 	
@@ -68,14 +64,5 @@ public class AddressForm {
 		CEP = cEP;
 	}
 	
-	public static List<Address> convert(List<AddressForm> adresses) {
-		
-		
-		adresses.forEach(add -> {
-			Address address = new Address();
-		});
-		Address a = new Address();
-		return Arrays.asList(a);
-	}
 
 }

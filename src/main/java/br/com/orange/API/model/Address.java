@@ -17,13 +17,24 @@ public class Address {
 	private User user;
 
 	private String street;
-	private Integer numero;
+	private Integer number;
 	private String complement;
 	private String CEP;
 	
-		
 	
 	
+	public Address() {
+		super();
+	}
+
+	public Address(String street, Integer number, String complement, String cEP) {
+		super();
+		this.street = street;
+		this.number = number;
+		this.complement = complement;
+		this.CEP = cEP;
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -40,12 +51,13 @@ public class Address {
 		this.street = street;
 	}
 
-	public Integer getNumero() {
-		return numero;
+
+	public Integer getNumber() {
+		return number;
 	}
 
-	public void setNumero(Integer numero) {
-		this.numero = numero;
+	public void setNumber(Integer number) {
+		this.number = number;
 	}
 
 	public String getComplement() {
